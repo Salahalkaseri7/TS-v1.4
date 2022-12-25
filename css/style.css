@@ -241,10 +241,11 @@ body {
 }
 .container .illustrationImg {
     position: absolute;
-    left: 6.900rem;
+    object-fit: contain;
+    left: 6.700rem;
     width: 90%;
-    height: 33rem;
-    margin-top: -3rem;
+    height: 40rem;
+    margin-top: -7rem;
     z-index: -1;
 }
 .TS-logoImg {
