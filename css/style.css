@@ -215,6 +215,7 @@ body {
 .container {
     position: relative;
     width: 100vw;
+    object-fit: contain;
     min-height: 100vh;
     overflow: hidden;
 }

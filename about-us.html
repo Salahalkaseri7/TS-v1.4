@@ -1,820 +1,894 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=0.7">
-<style>
-:root{
-  --background-dark: #2d3548;
-  --text-light: rgba(255,255,255,0.6);
-  --text-lighter: rgba(255,255,255,0.9);
-  --spacing-s: 8px;
-  --spacing-m: 16px;
-  --spacing-l: 24px;
-  --spacing-xl: 32px;
-  --spacing-xxl: 64px;
-  --width-container:1900rem;
-  width:fit-content;
-}
-.glow-on-hover {
-    width: 220px;
-    height: 50px;
-    border: none;
-    outline: none;
-    color: #fff;
-    background: #111;
-    cursor: pointer;
-    position: relative;
-    z-index: 0;
-    border-radius: 10px;
-}
+  <meta name="viewport" content="width=device-width, initial-scale=0.5">
+  <style>
+    :root {
+      --background-dark: #2d3548;
+      --text-light: rgba(255, 255, 255, 0.6);
+      --text-lighter: rgba(255, 255, 255, 0.9);
+      --spacing-s: 8px;
+      --spacing-m: 16px;
+      --spacing-l: 24px;
+      --spacing-xl: 32px;
+      --spacing-xxl: 64px;
+      --width-container: 1900rem;
+      width: fit-content;
+    }
 
-.glow-on-hover:before {
-    content: '';
-    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
-    position: absolute;
-    top: -2px;
-    left:-2px;
-    background-size: 400%;
-    z-index: -1;
-    filter: blur(5px);
-    width: calc(100% + 4px);
-    height: calc(100% + 4px);
-    animation: glowing 20s linear infinite;
-    opacity: 0;
-    transition: opacity .3s ease-in-out;
-    border-radius: 10px;
-}
+    .glow-on-hover {
+      width: 220px;
+      height: 50px;
+      border: none;
+      outline: none;
+      color: #fff;
+      background: #111;
+      cursor: pointer;
+      position: relative;
+      z-index: 0;
+      border-radius: 10px;
+    }
 
-.glow-on-hover:active {
-    color: #3399ff
-}
+    .glow-on-hover:before {
+      content: '';
+      background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      background-size: 400%;
+      z-index: -1;
+      filter: blur(5px);
+      width: calc(100% + 4px);
+      height: calc(100% + 4px);
+      animation: glowing 20s linear infinite;
+      opacity: 0;
+      transition: opacity .3s ease-in-out;
+      border-radius: 10px;
+    }
 
-.glow-on-hover:active:after {
-    background: transparent;
-}
+    .glow-on-hover:active {
+      color: #3399ff
+    }
 
-.glow-on-hover:hover:before {
-    opacity: 1;
-}
+    .glow-on-hover:active:after {
+      background: transparent;
+    }
 
-.glow-on-hover:after {
-    z-index: -1;
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgb(30, 196, 243);
-    left: 0;
-    top: 0;
-    border-radius: 10px;
-}
+    .glow-on-hover:hover:before {
+      opacity: 1;
+    }
 
-@keyframes glowing {
-    0% { background-position: 0 0; }
-    50% { background-position: 400% 0; }
-    100% { background-position: 0 0; }
-}
-body{
-  background: #3399ff;
-}
-.circle{
-  position: absolute;
-  border-radius: 50%;
-  background: white;
-  animation: ripple 15s infinite;
-  box-shadow: 0px 0px 1px 0px #508fb9;
-}
+    .glow-on-hover:after {
+      z-index: -1;
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgb(30, 196, 243);
+      left: 0;
+      top: 0;
+      border-radius: 10px;
+    }
 
-.small{
-  width: 200px;
-  height: 200px;
-  left: -100px;
-  bottom: -10px;
-}
+    @keyframes glowing {
+      0% {
+        background-position: 0 0;
+      }
 
-.medium{
-  width: 400px;
-  height: 400px;
-  left: -200px;
-  bottom: -50px;
-}
+      50% {
+        background-position: 400% 0;
+      }
 
-.large{
-  width: 600px;
-  height: 600px;
-  left: -300px;
-  bottom: -164px;
-}
+      100% {
+        background-position: 0 0;
+      }
+    }
 
-.xlarge{
-  width: 800px;
-  height: 800px;
-  left: -400px;
-  bottom: -272px;
-}
+    body {
+      background: #3399ff;
+    }
 
-.xxlarge{
-  width: 1000px;
-  height: 1000px;
-  left: -500px;
-  bottom: -376px;
-}
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      background: white;
+      animation: ripple 15s infinite;
+      box-shadow: 0px 0px 1px 0px #508fb9;
+    }
 
-.shade1{
-  opacity: 0.2;
-}
-.shade2{
-  opacity: 0.5;
-}
+    .small {
+      width: 200px;
+      height: 200px;
+      left: -100px;
+      bottom: -10px;
+    }
 
-.shade3{
-  opacity: 0.7;
-}
+    .medium {
+      width: 400px;
+      height: 400px;
+      left: -200px;
+      bottom: -50px;
+    }
 
-.shade4{
-  opacity: 0.8;
-}
+    .large {
+      width: 600px;
+      height: 600px;
+      left: -300px;
+      bottom: -164px;
+    }
 
-.shade5{
-  opacity: 0.9;
-}
+    .xlarge {
+      width: 800px;
+      height: 800px;
+      left: -400px;
+      bottom: -272px;
+    }
 
-@keyframes ripple{
-  0%{
-    transform: scale(0.8);
-  }
-  
-  50%{
-    transform: scale(1.2);
-  }
-  
-  100%{
-    transform: scale(0.8);
-  }
-}
-html{
-  height: 100%;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-}
-.hero-section{
-  align-items: flex-start;
-  display: flex;
-  min-height: 100%;
-  justify-content: center;
-  padding: var(--spacing-xxl) var(--spacing-l);
-  height: fit-content;
-}
-.card-grid{
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-column-gap: var(--spacing-l);
-  grid-row-gap: var(--spacing-l);
-  max-width: var(--width-container);
-  width: 100%;
-}
+    .xxlarge {
+      width: 1000px;
+      height: 1000px;
+      left: -500px;
+      bottom: -376px;
+    }
 
-@media(min-width: 540px){
-  .card-grid{
-    grid-template-columns: repeat(2, 1fr); 
-  }
-}
+    .shade1 {
+      opacity: 0.2;
+    }
 
-@media(min-width: 960px){
-  .card-grid{
-    grid-template-columns: repeat(4, 1fr); 
-  }
-}
+    .shade2 {
+      opacity: 0.5;
+    }
 
-.card{
-  list-style: none;
-  position: relative;
-  width: 25rem;
-  height: 37rem
-}
+    .shade3 {
+      opacity: 0.7;
+    }
 
-.card:before{
-  content: '';
-  display: block;
-  padding-bottom: 150%;
-  width: 100%;
-}
+    .shade4 {
+      opacity: 0.8;
+    }
 
-.card__background{
-  background-size: cover;
-  background-position: center;
-  border-radius: var(--spacing-l);
-  bottom: 0;
-  filter: brightness(0.75) saturate(1.2) contrast(0.85);
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  transform-origin: center;
-  trsnsform: scale(1) translateZ(0);
-  transition: 
-    filter 200ms linear,
-    transform 200ms linear;
-}
+    .shade5 {
+      opacity: 0.9;
+    }
 
-.card:hover .card__background{
-  transform: scale(1.05) translateZ(0);
-}
+    @keyframes ripple {
+      0% {
+        transform: scale(0.8);
+      }
 
-.card-grid:hover > .card:not(:hover) .card__background{
-  filter: brightness(0.5) saturate(0) contrast(1.2) blur(20px);
-}
+      50% {
+        transform: scale(1.2);
+      }
 
-.card__content{
-  left: 0;
-  padding: var(--spacing-l);
-  position: absolute;
-  top: 0;
-  height: fit-content;
-}
+      100% {
+        transform: scale(0.8);
+      }
+    }
 
-.card__category{
-  color: var(--text-light);
-  font-size: 0.9rem;
-  margin-bottom: var(--spacing-s);
-  text-transform: uppercase;
-}
+    html {
+      height: 100%;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+    }
 
-.card__heading{
-  color: var(--text-lighter);
-  font-size: 1.9rem;
-  text-shadow: 2px 2px 20px rgba(0,0,0,0.2);
-  line-height: 1.4;
-  word-spacing: 100vw;
-}
-h3 {text-align: center;}
-button{
-    margin-top: 3rem;
-    margin-left:7rem;
-    background-color: white;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding:10px;
-    position: relative;
-  }
-  button:hover{
-    background-color: #3399ff;
-    color: white;
-    transition: .5s;
-    cursor: pointer;
-  }
-  #btext{
-   display: inline-block;
-   padding-left: 2rem;
-    margin: 10rem 3rem auto;
-  }
-  #bh3{
-    margin:4rem 4rem auto 4rem;
-  }
-  #bdt{
-    margin-top: 1rem;
-  }
-  #tdb{
-    display: inline-block;
-    margin: 4rem auto;
-    color: black;
-  }
-  #qtext{
-    display: inline-block;
-    margin: 10rem 2rem auto;
-  }
-  #vtn{
-    position: relative;
-    margin:2rem 2rem auto;
-  }
-  .container{
-    width: 65rem;
-    height: 50rem;
-    position: relative;
-  }
-#menu {
-  width: 30rem;
-  position: relative;
-	list-style:none;
-	margin:3rem 1rem auto;
-	height:3rem;
+    .hero-section {
+      align-items: flex-start;
+      display: flex;
+      min-height: 100%;
+      justify-content: center;
+      padding: var(--spacing-xxl) var(--spacing-l);
+      height: fit-content;
+    }
 
-	/* Rounded Corners */
-	
-	-moz-border-radius: 10px;
-	-webkit-border-radius: 10px;
-	border-radius: 10px;
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-column-gap: var(--spacing-l);
+      grid-row-gap: var(--spacing-l);
+      max-width: var(--width-container);
+      width: 100%;
+    }
 
-	/* Background color and gradients */
-	
-	background: #014464;
-	background: -moz-linear-gradient(top, #0272a7, #013953);
-	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#0272a7), to(#013953));
-	
-	/* Borders */
-	
-	border: 1px solid #002232;
+    @media(min-width: 540px) {
+      .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
 
-	-moz-box-shadow:inset 0px 0px 1px #edf9ff;
-	-webkit-box-shadow:inset 0px 0px 1px #edf9ff;
-	box-shadow:inset 0px 0px 1px #edf9ff;
-}
-#menu li {
-  float: left;
-  display: block;
-  text-align: center;
-  position: relative;
-  padding: 4px 10px 4px 10px;
-  margin-right: 30px;
-  margin-top: 7px;
-  border: none;
-}
+    @media(min-width: 960px) {
+      .card-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
 
-#menu li:hover {
-  border: 1px solid #777777;
-  padding: 4px 9px 4px 9px;
+    .card {
+      list-style: none;
+      position: relative;
+      width: 25rem;
+      height: 37rem
+    }
 
-  /* Background color and gradients */
+    .card:before {
+      content: '';
+      display: block;
+      padding-bottom: 150%;
+      width: 100%;
+    }
 
-  background: #f4f4f4;
-  background: -moz-linear-gradient(top, #f4f4f4, #eeeeee);
-  background: -webkit-gradient(
-    linear,
-    0% 0%,
-    0% 100%,
-    from(#f4f4f4),
-    to(#eeeeee)
-  );
+    .card__background {
+      background-size: cover;
+      background-position: center;
+      border-radius: var(--spacing-l);
+      bottom: 0;
+      filter: brightness(0.75) saturate(1.2) contrast(0.85);
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transform-origin: center;
+      trsnsform: scale(1) translateZ(0);
+      transition:
+        filter 200ms linear,
+        transform 200ms linear;
+    }
 
-  /* Rounded corners */
+    .card:hover .card__background {
+      transform: scale(1.05) translateZ(0);
+    }
 
-  -moz-border-radius: 5px 5px 0px 0px;
-  -webkit-border-radius: 5px 5px 0px 0px;
-  border-radius: 5px 5px 0px 0px;
-}
+    .card-grid:hover>.card:not(:hover) .card__background {
+      filter: brightness(0.5) saturate(0) contrast(1.2) blur(20px);
+    }
 
-#menu li a {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 14px;
-  color: #eeeeee;
-  display: block;
-  outline: 0;
-  text-decoration: none;
-  text-shadow: 1px 1px 1px #000;
-}
+    .card__content {
+      left: 0;
+      padding: var(--spacing-l);
+      position: absolute;
+      top: 0;
+      height: fit-content;
+    }
 
-#menu li:hover a {
-  color: #161616;
-  text-shadow: 1px 1px 1px #ffffff;
-}
-#menu li .drop {
-  padding-right: 21px;
-  background: url("img/drop.png") no-repeat right 8px;
-}
-#menu li:hover .drop {
-  background: url("img/drop.png") no-repeat right 7px;
-}
+    .card__category {
+      color: var(--text-light);
+      font-size: 0.9rem;
+      margin-bottom: var(--spacing-s);
+      text-transform: uppercase;
+    }
 
-.dropdown_1column,
-.dropdown_2columns,
-.dropdown_3columns,
-.dropdown_4columns,
-.dropdown_5columns {
- width:fit-content ;
-  margin: 4px auto;
-  float: right;
-  position: absolute;
-  left: -300em; /* Hides the drop down */
-  text-align: left;
-  padding: 10px 5px 10px 5px;
-  border: 1px solid #777777;
-  border-top: none;
+    .card__heading {
+      color: var(--text-lighter);
+      font-size: 1.9rem;
+      text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+      line-height: 1.4;
+      word-spacing: 100vw;
+    }
 
-  /* Gradient background */
-  background: #f4f4f4;
-  background: -moz-linear-gradient(top, #eeeeee, #bbbbbb);
-  background: -webkit-gradient(
-    linear,
-    0% 0%,
-    0% 100%,
-    from(#eeeeee),
-    to(#bbbbbb)
-  );
+    h3 {
+      text-align: center;
+    }
 
-  /* Rounded Corners */
-  -moz-border-radius: 0px 5px 5px 5px;
-  -webkit-border-radius: 0px 5px 5px 5px;
-  border-radius: 0px 5px 5px 5px;
-}
+    button {
+      margin-top: 3rem;
+      margin-left: 7rem;
+      background-color: white;
+      border: 1px solid black;
+      border-radius: 5px;
+      padding: 10px;
+      position: relative;
+    }
 
-.dropdown_1column {
-  width: 140px;
-}
-.dropdown_2columns {
-  width: 280px;
-}
-.dropdown_3columns {
-  width: 420px;
-}
-.dropdown_4columns {
-  width: 560px;
-}
-.dropdown_5columns {
-  width: 700px;
-}
+    button:hover {
+      background-color: #3399ff;
+      color: white;
+      transition: .5s;
+      cursor: pointer;
+    }
 
-#menu li:hover .dropdown_1column,
-#menu li:hover .dropdown_2columns,
-#menu li:hover .dropdown_3columns,
-#menu li:hover .dropdown_4columns,
-#menu li:hover .dropdown_5columns {
-  left: -1px;
-  top: auto;
-}
+    #btext {
+      display: inline-block;
+      padding-left: 2rem;
+      margin: 10rem 3rem auto;
+    }
 
-.col_1,
-.col_2,
-.col_3,
-.col_4,
-.col_5 {
-  display: inline;
-  float: left;
-  position: relative;
-  margin-left: 5px;
-  margin-right: 5px;
-}
-.col_1 {
-  width: 130px;
-}
-.col_2 {
-  width: 270px;
-}
-.col_3 {
-  width: 410px;
-}
-.col_4 {
-  width: 550px;
-}
-.col_5 {
-  width: 690px;
-}
+    #bh3 {
+      margin: 4rem 4rem auto 4rem;
+    }
 
-#menu p,
-#menu h2,
-#menu h3,
-#menu ul li {
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 21px;
-  font-size: 12px;
-  text-align: left;
-  text-shadow: 1px 1px 1px #ffffff;
-}
-#menu h2 {
-  font-size: 21px;
-  font-weight: 400;
-  letter-spacing: -1px;
-  margin: 7px 0 14px 0;
-  padding-bottom: 14px;
-  border-bottom: 1px solid #666666;
-}
-#menu h3 {
-  font-size: 14px;
-  margin: 7px 0 14px 0;
-  padding-bottom: 7px;
-  border-bottom: 1px solid #888888;
-}
-#menu p {
-  line-height: 18px;
-  margin: 0 0 10px 0;
-}
+    #bdt {
+      margin-top: 1rem;
+    }
 
-#menu li:hover div a {
-  font-size: 12px;
-  color: #015b86;
-}
-#menu li:hover div a:hover {
-  color: #029feb;
-}
+    #tdb {
+      display: inline-block;
+      margin: 4rem auto;
+      color: black;
+    }
 
-.strong {
-  font-weight: bold;
-}
-.italic {
-  font-style: italic;
-}
+    #qtext {
+      display: inline-block;
+      margin: 10rem 2rem auto;
+    }
 
-.imgshadow {
-  /* Better style on light background */
-  background: #ffffff;
-  padding: 4px;
-  border: 1px solid #777777;
-  margin-top: 5px;
-  -moz-box-shadow: 0px 0px 5px #666666;
-  -webkit-box-shadow: 0px 0px 5px #666666;
-  box-shadow: 0px 0px 5px #666666;
-}
-.img_left {
-  /* Image sticks to the left */
-  width: auto;
-  float: left;
-  margin: 5px 15px 5px 5px;
-}
-#menu li .black_box {
-  background-color: #333333;
-  color: #eeeeee;
-  text-shadow: 1px 1px 1px #000;
-  padding: 4px 6px 4px 6px;
+    #vtn {
+      position: relative;
+      margin: 2rem 2rem auto;
+    }
 
-  /* Rounded Corners */
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
+    .container1 {
+      width: 65rem;
+      height: 50rem;
+      position: relative;
+    }
 
-  /* Shadow */
-  -webkit-box-shadow: inset 0 0 3px #000000;
-  -moz-box-shadow: inset 0 0 3px #000000;
-  box-shadow: inset 0 0 3px #000000;
-}
-#keyboardtsg{
-	width: 7rem;
-	height: 4rem;
-}
-#contsgg{
-	width: 15rem;
-	height: 11rem;
-}
-.colse{
-	display: inline;
-  float: left;
-  position: relative;
-  margin-left: 14rem;
-  margin-top: -11rem;
-  margin-right: 5px;
+    #menu {
+      width: 30rem;
+      position: relative;
+      list-style: none;
+      margin: 3rem 1rem auto;
+      height: 3rem;
 
-}
+      /* Rounded Corners */
 
+      -moz-border-radius: 10px;
+      -webkit-border-radius: 10px;
+      border-radius: 10px;
 
-</style>
+      /* Background color and gradients */
+
+      background: #014464;
+      background: -moz-linear-gradient(top, #0272a7, #013953);
+      background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#0272a7), to(#013953));
+
+      /* Borders */
+
+      border: 1px solid #002232;
+
+      -moz-box-shadow: inset 0px 0px 1px #edf9ff;
+      -webkit-box-shadow: inset 0px 0px 1px #edf9ff;
+      box-shadow: inset 0px 0px 1px #edf9ff;
+    }
+
+    #menu li {
+      float: left;
+      display: block;
+      text-align: center;
+      position: relative;
+      padding: 4px 10px 4px 10px;
+      margin-right: 30px;
+      margin-top: 7px;
+      border: none;
+    }
+
+    #menu li:hover {
+      border: 1px solid #777777;
+      padding: 4px 9px 4px 9px;
+
+      /* Background color and gradients */
+
+      background: #f4f4f4;
+      background: -moz-linear-gradient(top, #f4f4f4, #eeeeee);
+      background: -webkit-gradient(linear,
+          0% 0%,
+          0% 100%,
+          from(#f4f4f4),
+          to(#eeeeee));
+
+      /* Rounded corners */
+
+      -moz-border-radius: 5px 5px 0px 0px;
+      -webkit-border-radius: 5px 5px 0px 0px;
+      border-radius: 5px 5px 0px 0px;
+    }
+
+    #menu li a {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      color: #eeeeee;
+      display: block;
+      outline: 0;
+      text-decoration: none;
+      text-shadow: 1px 1px 1px #000;
+    }
+
+    #menu li:hover a {
+      color: #161616;
+      text-shadow: 1px 1px 1px #ffffff;
+    }
+
+    #menu li .drop {
+      padding-right: 21px;
+      background: url("img/drop.png") no-repeat right 8px;
+    }
+
+    #menu li:hover .drop {
+      background: url("img/drop.png") no-repeat right 7px;
+    }
+
+    .dropdown_1column,
+    .dropdown_2columns,
+    .dropdown_3columns,
+    .dropdown_4columns,
+    .dropdown_5columns {
+      width: fit-content;
+      margin: 4px auto;
+      float: right;
+      position: absolute;
+      left: -300em;
+      /* Hides the drop down */
+      text-align: left;
+      padding: 10px 5px 10px 5px;
+      border: 1px solid #777777;
+      border-top: none;
+
+      /* Gradient background */
+      background: #f4f4f4;
+      background: -moz-linear-gradient(top, #eeeeee, #bbbbbb);
+      background: -webkit-gradient(linear,
+          0% 0%,
+          0% 100%,
+          from(#eeeeee),
+          to(#bbbbbb));
+
+      /* Rounded Corners */
+      -moz-border-radius: 0px 5px 5px 5px;
+      -webkit-border-radius: 0px 5px 5px 5px;
+      border-radius: 0px 5px 5px 5px;
+    }
+
+    .dropdown_1column {
+      width: 140px;
+    }
+
+    .dropdown_2columns {
+      width: 280px;
+    }
+
+    .dropdown_3columns {
+      width: 420px;
+    }
+
+    .dropdown_4columns {
+      width: 560px;
+    }
+
+    .dropdown_5columns {
+      width: 700px;
+    }
+
+    #menu li:hover .dropdown_1column,
+    #menu li:hover .dropdown_2columns,
+    #menu li:hover .dropdown_3columns,
+    #menu li:hover .dropdown_4columns,
+    #menu li:hover .dropdown_5columns {
+      left: -1px;
+      top: auto;
+    }
+
+    .col_1,
+    .col_2,
+    .col_3,
+    .col_4,
+    .col_5 {
+      display: inline;
+      float: left;
+      position: relative;
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+
+    .col_1 {
+      width: 130px;
+    }
+
+    .col_2 {
+      width: 270px;
+    }
+
+    .col_3 {
+      width: 410px;
+    }
+
+    .col_4 {
+      width: 550px;
+    }
+
+    .col_5 {
+      width: 690px;
+    }
+
+    #menu p,
+    #menu h2,
+    #menu h3,
+    #menu ul li {
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 21px;
+      font-size: 12px;
+      text-align: left;
+      text-shadow: 1px 1px 1px #ffffff;
+    }
+
+    #menu h2 {
+      font-size: 21px;
+      font-weight: 400;
+      letter-spacing: -1px;
+      margin: 7px 0 14px 0;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #666666;
+    }
+
+    #menu h3 {
+      font-size: 14px;
+      margin: 7px 0 14px 0;
+      padding-bottom: 7px;
+      border-bottom: 1px solid #888888;
+    }
+
+    #menu p {
+      line-height: 18px;
+      margin: 0 0 10px 0;
+    }
+
+    #menu li:hover div a {
+      font-size: 12px;
+      color: #015b86;
+    }
+
+    #menu li:hover div a:hover {
+      color: #029feb;
+    }
+
+    .strong {
+      font-weight: bold;
+    }
+
+    .italic {
+      font-style: italic;
+    }
+
+    .imgshadow {
+      /* Better style on light background */
+      background: #ffffff;
+      padding: 4px;
+      border: 1px solid #777777;
+      margin-top: 5px;
+      -moz-box-shadow: 0px 0px 5px #666666;
+      -webkit-box-shadow: 0px 0px 5px #666666;
+      box-shadow: 0px 0px 5px #666666;
+    }
+
+    .img_left {
+      /* Image sticks to the left */
+      width: auto;
+      float: left;
+      margin: 5px 15px 5px 5px;
+    }
+
+    #menu li .black_box {
+      background-color: #333333;
+      color: #eeeeee;
+      text-shadow: 1px 1px 1px #000;
+      padding: 4px 6px 4px 6px;
+
+      /* Rounded Corners */
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      border-radius: 5px;
+
+      /* Shadow */
+      -webkit-box-shadow: inset 0 0 3px #000000;
+      -moz-box-shadow: inset 0 0 3px #000000;
+      box-shadow: inset 0 0 3px #000000;
+    }
+
+    #keyboardtsg {
+      width: 7rem;
+      height: 4rem;
+    }
+
+    #contsgg {
+      width: 15rem;
+      height: 11rem;
+    }
+
+    .colse {
+      display: inline;
+      float: left;
+      position: relative;
+      margin-left: 14rem;
+      margin-top: -11rem;
+      margin-right: 5px;
+    }
+
+    .container {
+      position: relative;
+      width: 10rem;
+      display: flex;
+      flex-flow: column wrap;
+      align-items: center;
+    }
+    .container1{
+      align-self: center;
+    }
+  </style>
 </head>
+
 <body>
-<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
-<div class='ripple-background'>
-  <div class='circle xxlarge shade1'></div>
-  <div class='circle xlarge shade2'></div>
-  <div class='circle large shade3'></div>
-  <div class='circle mediun shade4'></div>
-  <div class='circle small shade5'></div>
-</div>
-<div class="container">
-  <ul id="menu">
-      
-      <li><a href="#" class="drop">Home</a><!-- Begin Home Item -->
-      
+  <div class="container">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+    <div class='ripple-background'>
+      <div class='circle xxlarge shade1'></div>
+      <div class='circle xlarge shade2'></div>
+      <div class='circle large shade3'></div>
+      <div class='circle mediun shade4'></div>
+      <div class='circle small shade5'></div>
+    </div>
+    <div class="container1">
+      <ul id="menu">
+
+        <li><a href="#" class="drop">Home</a><!-- Begin Home Item -->
+
           <div class="dropdown_2columns"><!-- Begin 2 columns container -->
-      
-              <div class="col_2">
-                  <h2>Welcome !</h2>
-              </div>
-      
-              <div class="col_2">
-                  <p>Press Back-To-Home for home page.</p>             
-                  <button id="vtn" class="glow-on-hover" type="button"
-                  onclick="backtohome()">
-                  Back-To-Home</button>
-                  <script>
-                  function backtohome(){
-                  document.location.href="index.html";
-                  }
-                  </script>            
-              </div>
-  
-      </li><!-- End Home Item -->
-  
-      <li><a href="#" class="drop">TRIS_GAME</a><!-- Begin 5 columns Item -->
-      
+
+            <div class="col_2">
+              <h2>Welcome !</h2>
+            </div>
+
+            <div class="col_2">
+              <p>Press Back-To-Home for home page.</p>
+              <button id="vtn" class="glow-on-hover" type="button" onclick="backtohome()">
+                Back-To-Home</button>
+              <script>
+                function backtohome() {
+                  document.location.href = "index.html";
+                }
+              </script>
+            </div>
+
+        </li><!-- End Home Item -->
+
+        <li><a href="#" class="drop">TRIS_GAME</a><!-- Begin 5 columns Item -->
+
           <div class="dropdown_5columns"><!-- Begin 5 columns container -->
+
+            <div class="col_5">
+              <h2>WORD TRIS GAME TUTORIAL</h2>
+            </div>
+
+            <div class="col_1">
+              <img id="keyboardtsg" class="black_box" src="img/keyboardtg.png" alt="ktg">
+            </div>
+
+            <div class="col_1">
+              <p>1).Click on this keyboard button to start Game.</p>
+            </div>
+
+            <div class="col_1">
+              <p class="strong">2).Always Remember the first letter should be captical and rest are small in order to
+                make messages disappear.</p>
+            </div>
+
+            <div class="col_1">
+              <p class="italic">3).Press space after finishing the messsage to disappear or avoid fall into container.
+              </p>
+            </div>
+
+            <div class="col_1">
+              <p>4).The score will appear in left corner showing how much u scored by disappearing messages.</p>
+            </div>
+
+            <div class="col_5">
+              <h2>Container of TRiS GAME</h2>
+            </div>
+
+            <div class="col_3">
+
+              <img src="img/sctg.png" width="70" height="70" class="img_left imgshadow" alt="" />
+              <p>When u complete typing a message and press <b><span style="color: crimson;"">space</span></b> to make message disappear the score will increase with every message u made disappear! and the speed of words falling will increase slowly after some specific score!</p>
           
-              <div class="col_5">
-                  <h2>WORD TRIS GAME TUTORIAL</h2>
-              </div>
-              
-              <div class="col_1">
-                 <img id="keyboardtsg" class="black_box" src="img/keyboardtg.png" alt="ktg">
-              </div>
-              
-              <div class="col_1">
-                  <p>1).Click on this keyboard button to start Game.</p>
-              </div>
-              
-              <div class="col_1">
-                  <p class="strong">2).Always Remember the first letter should be captical and rest are small in order to make messages disappear.</p>
-              </div>
-              
-              <div class="col_1">
-                  <p class="italic">3).Press space after finishing the messsage to disappear or avoid fall into container.</p>
-              </div>
-  
-              <div class="col_1">
-                  <p>4).The score will appear in left corner showing how much u scored by disappearing messages.</p>
-              </div>
-          
-              <div class="col_5">
-                  <h2>Container of TRiS GAME</h2>
-              </div>
-             
-              <div class="col_3">
-              
-                  <img src="img/sctg.png" width="70" height="70" class="img_left imgshadow" alt="" />
-                  <p>When u complete typing a message and press <b><span style="color: crimson;"">space</span></b> to make message disappear the score will increase with every message u made disappear! and the speed of words falling will increase slowly after some specific score!</p>
-          
-                  <img src="img/contsg1.png" width="70" height="70" class="img_left imgshadow" alt="" />
+                  <img src=" img/contsg1.png" width="70" height="70" class="img_left imgshadow" alt="" />
                   <p>
-                      U have to <b><span style="color: crimson;">words or messages to fall into the the container</span></b> in order to continue the game, if failed then the game will over!
+                    U have to <b><span style="color: crimson;">words or messages to fall into the the
+                        container</span></b> in order to continue the game, if failed then the game will over!
                   </p>
-              
-              </div>
-              
-              <div class="col_2">
+
+            </div>
+
+            <div class="col_2">
               <img id="contsgg" class="black_box" src="img/contsg.png" alt="contsg">
-              
-              </div>
-          
+
+            </div>
+
           </div><!-- End 5 columns container -->
-      
-      </li><!-- End 5 columns Item -->
-      <li class="menu_right"><a href="#" class="drop">Chat_Bot</a><!-- Begin 3 columns Item -->
-      
+
+        </li><!-- End 5 columns Item -->
+        <li class="menu_right"><a href="#" class="drop">Chat_Bot</a><!-- Begin 3 columns Item -->
+
           <div class="dropdown_3columns align_right"><!-- Begin 3 columns container -->
-              
-              <div class="col_3">
-                  <h2>TUTORIAL FOR CHAT_BOT</h2>
-              </div>
-          <div>
+
+            <div class="col_3">
+              <h2>TUTORIAL FOR CHAT_BOT</h2>
+            </div>
+            <div>
               <h2 style="text-align: center;">Questions u can ask to Bot</h2>
               <p>
-  1). Hi
-  <br>
-  2). Hello
-  <br>
-  3). Bye
-  <br>
-  4). How are you?
-  <br>
-  5). Let me login
-  <br>
-  6). Whats new today?
-  <br>
-  7). Like on which topic?
-  <br>
-  8). Ok so whats tip1?
-  <br>
-  
-  
-   <b><span style="color: crimson;">Note:  (Question mark symbol needed for asking questions)</span></b>
-   <br>
-  
+                1). Hi
+                <br>
+                2). Hello
+                <br>
+                3). Bye
+                <br>
+                4). How are you?
+                <br>
+                5). Let me login
+                <br>
+                6). Whats new today?
+                <br>
+                7). Like on which topic?
+                <br>
+                8). Ok so whats tip1?
+                <br>
+
+
+                <b><span style="color: crimson;">Note: (Question mark symbol needed for asking questions)</span></b>
+                <br>
+
               </p>
-              <div class="colse"><p>
-                  9). And tip2?
-                  <br>             
+              <div class="colse">
+                <p>
+                   9).And tip2?
+                  <br>
                   10).Tip3?
-  <br>
+                  <br>
                   11). Thanks it helped me a lot!
-  <br>
-  12). and use "logout" for logging out.
-  <br>
-   " U can login using:
-  <br>
-  -> Let me login
-  <br>
-  -> Pass:PROFESSOR7 "
-  <br>
-  
-              </p></div>
-          </div>
-              <div class="col_3">
-                  <h2>How it works!</h2>
-              </div>
-              <div>
-                  <h3 style="text-align: center;">Input box Click here to type a message to bot!</h3>
-                  <img  style="margin:0rem 2rem auto ;"  src="img/inpcb.png" width="350" height="40" alt="inputboxch">
                   <br>
+                  12). and use "logout" for logging out.
                   <br>
-              </div>
-              <div class="col_3">
-                  <img src="img/enterch.png" width="50" height="50" class="img_left imgshadow" alt="" />
+                  " U can login using:
                   <br>
-                  <p>
-                      After typing message in input box press <b><spna style="color: crimson;">ENTER</spna></b> to convey your message to bot!<br><br><br>
-                  </p>
-                  <img src="img/vch.png" width="53" height="53" class="img_left imgshadow" alt="" />
-                 <p>
-                  U can use <b><Span style="color: crimson;">voice speech </Span></b>to chat with bot too, the voice recognized message will appear in input box and then <b><span>press ENTER again</span></b> to convery your message to chat bot! 
-                 </p>
+                  -> Let me login
+                  <br>
+                  -> Pass:PROFESSOR7 "
+                  <br>
+
+                </p>
               </div>
-          
+            </div>
+            <div class="col_3">
+              <h2 style="text-align: center;">How it works!</h2>
+            </div>
+            <div>
+              <h3 style="text-align: center;">Input box Click here to type a message to bot!</h3>
+              <img style="margin:0rem 2rem auto ;" src="img/inpcb.png" width="350" height="40" alt="inputboxch">
+              <br>
+              <br>
+            </div>
+            <div class="col_3">
+              <img src="img/enterch.png" width="50" height="50" class="img_left imgshadow" alt="" />
+              <br>
+              <p>
+                After typing message in input box press <b>
+                  <spna style="color: crimson;">ENTER</spna>
+                </b> to convey your message to bot!<br><br><br>
+              </p>
+              <img src="img/vch.png" width="53" height="53" class="img_left imgshadow" alt="" />
+              <p>
+                U can use <b><Span style="color: crimson;">voice speech </Span></b>to chat with bot too, the voice
+                recognized message will appear in input box and then <b><span>press ENTER again</span></b> to convery
+                your message to chat bot!
+              </p>
+            </div>
+
           </div><!-- End 3 columns container -->
-          
-      </li><!-- End 3 columns Item -->
-  
-  
-  </ul>
-</div>  
-<section class="hero-section">
-  <div class="card-grid">
-    <a class="card" href="#">
-      <div class="card__background" style="background-image: url(img/bg1234.jpg)"></div>
-      <div class="card__content">
-        <p class="card__category" style="font-family: 'Courier New', Courier, monospace;">
-            <br>
-            <br>
-            <b>The actual idea to develop this project come from the communication accuracy or 
-            time saving, just to save time of people throught this specticular thought... i decided 
-            to make a project that when a user selects an accurate chellenge time duration, 
-            the entered message of a person will be measured or analyzed through the software.</b></p>
-            <br>
-            <br>
-        <h3 class="card__heading">QuickTest</h3>
-      </div>
-    </a>
-    <a class="card" href="#">
-      <div class="card__background" style="background-image: url(img/bg12345.jpg)"></div>
-      <div class="card__content">
-        <p class="card__category" style="font-family: 'Courier New', Courier, monospace;">
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <b>A tris game in which words will fall in a container at specified speed, and 
-                you have to type that words before the drop in container if failed then game over!</b></p>
-                <br>
-                <br>
-        <h3 class="card__heading">Tris game</h3>
-      </div>
-    </a>
-    <a class="card" href="#">
-      <div class="card__background" style="background-image: url(img/bg12344.jpg)"></div>
-      <div class="card__content">
-        <p class="card__category" style="font-family: 'Courier New', Courier, monospace;">
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <b>A history section where you can check the previous typing test result by date and time.</b></p>
-            <br>
-        <h3 class="card__heading">History Section</h3>
-      </div>
-    </li>
-    <a class="card" href="#">
-      <div class="card__background" style="background-image: url(img/bg442.jpg)"></div>
-      <div class="card__content">
-        <p class="card__category" style="font-family: 'Courier New', Courier, monospace;">
-          <br>
-          <br>
-          <br>
-          <br>
-          <b id="btext"> Chat_Bot will help u and provide some better ways to enhance your typing speed & also u can chat or use voice speech with bot for fun!</b>
-        </p>
-        <h3 id="bh3" class="card__heading">Chat_Bot</h3>
-      </div>
-    </a>
-    <a class="card" href="#">
-      <div class="card__background" style="background-image: url(img/bg1233.webp)"></div>
-      <div class="card__content">
-        <p class="card__category" style="font-family: 'Courier New', Courier, monospace;">
-          <b id="qtext">Questionnaire will provide the optimized solution by asking some questions related to your typing!</b>
-        </p>
-        <h3 class="card__heading">Questionnaire</h3>
-      </div>
-    </a>
-    <a class="card" href="#">
-      <div class="card__background" style="background-image: url(img/bg4432.jpg)"></div>
-      <div class="card__content">
-        <p class="card__category" style="font-family: 'Courier New', Courier, monospace;">
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <b id="tdb" font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Hello! Interestingly, I have been a student of Poly Technic Computer branch and got introduced to programming in my Third Sem of year And At MGM'S college of Engineering, Nanded. Since then, I started developing Android Apps And Web Projects and pursuing my Bachelors in Computer Science and Engineering.
-            Today, I'm currently working on Self Projects and on the way of my roadmap to become a fullstack DEV.</b>
-        </p>
-        <h3 id="bdt" class="card__heading">Developer(ME)</h3>
-      </div>
-    </a>
-  <div>
-</section>
 
+        </li><!-- End 3 columns Item -->
+
+
+      </ul>
+    </div>
+    <section class="hero-section">
+      <div class="card-grid">
+        <a class="card" href="#">
+          <div class="card__background" style="background-image: url(img/bg1234.jpg)"></div>
+          <div class="card__content">
+            <p class="card__category" style="font-family: 'Courier New', Courier, monospace;">
+              <br>
+              <br>
+              <b>The actual idea to develop this project come from the communication accuracy or
+                time saving, just to save time of people throught this specticular thought... i decided
+                to make a project that when a user selects an accurate chellenge time duration,
+                the entered message of a person will be measured or analyzed through the software.</b>
+            </p>
+            <br>
+            <br>
+            <h3 class="card__heading">QuickTest</h3>
+          </div>
+        </a>
+        <a class="card" href="#">
+          <div class="card__background" style="background-image: url(img/bg12345.jpg)"></div>
+          <div class="card__content">
+            <p class="card__category" style="font-family: 'Courier New', Courier, monospace;">
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <b>A tris game in which words will fall in a container at specified speed, and
+                you have to type that words before the drop in container if failed then game over!</b>
+            </p>
+            <br>
+            <br>
+            <h3 class="card__heading">Tris game</h3>
+          </div>
+        </a>
+        <a class="card" href="#">
+          <div class="card__background" style="background-image: url(img/bg12344.jpg)"></div>
+          <div class="card__content">
+            <p class="card__category" style="font-family: 'Courier New', Courier, monospace;">
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <b>A history section where you can check the previous typing test result by date and time.</b>
+            </p>
+            <br>
+            <h3 class="card__heading">History Section</h3>
+          </div>
+          </li>
+          <a class="card" href="#">
+            <div class="card__background" style="background-image: url(img/bg442.jpg)"></div>
+            <div class="card__content">
+              <p class="card__category" style="font-family: 'Courier New', Courier, monospace;">
+                <br>
+                <br>
+                <br>
+                <br>
+                <b id="btext"> Chat_Bot will help u and provide some better ways to enhance your typing speed & also u
+                  can chat or use voice speech with bot for fun!</b>
+              </p>
+              <h3 id="bh3" class="card__heading">Chat_Bot</h3>
+            </div>
+          </a>
+          <a class="card" href="#">
+            <div class="card__background" style="background-image: url(img/bg1233.webp)"></div>
+            <div class="card__content">
+              <p class="card__category" style="font-family: 'Courier New', Courier, monospace;">
+                <b id="qtext">Questionnaire will provide the optimized solution by asking some questions related to your
+                  typing!</b>
+              </p>
+              <h3 class="card__heading">Questionnaire</h3>
+            </div>
+          </a>
+          <a class="card" href="#">
+            <div class="card__background" style="background-image: url(img/bg4432.jpg)"></div>
+            <div class="card__content">
+              <p class="card__category" style="font-family: 'Courier New', Courier, monospace;">
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <b id="tdb" font-family: 'Gill Sans' , 'Gill Sans MT' , Calibri, 'Trebuchet MS' , sans-serif;">Hello!
+                  Interestingly, I have been a student of Poly Technic Computer branch and got introduced to programming
+                  in my Third Sem of year And At MGM'S college of Engineering, Nanded. Since then, I started developing
+                  Android Apps And Web Projects and pursuing my Bachelors in Computer Science and Engineering.
+                  Today, I'm currently working on Self Projects and on the way of my roadmap to become a fullstack
+                  DEV.</b>
+              </p>
+              <h3 id="bdt" class="card__heading">Developer(ME)</h3>
+            </div>
+          </a>
+          <div>
+    </section>
+  </div>
 </body>
+
 </html>
-
-
